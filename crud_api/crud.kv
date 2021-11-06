@@ -1,0 +1,59 @@
+MDScreen:
+    MDToolbar:
+        title: "CRUD"
+        pos_hint: {'center_y': 0.94, 'center_x': 0.5}
+            
+    MDTextField:
+        id: name
+        hint_text: "Name"
+        helper_text: "Max Length=20"
+        helper_text_mode: "on_error"
+        max_text_length: 20
+        required: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+        size_hint: 0.9, None
+    
+    MDTextField:
+        id: age
+        hint_text: "Age"
+        helper_text: "*Required"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        size_hint: 0.9, None
+        required: True
+
+    MDRaisedButton:
+        text: "Create"
+        elevation: 8
+        opposite_colors: True
+        pos_hint: {"center_x": 0.3, 'center_y': 0.6}
+        on_release: 
+            app.insert()
+            root.ids.name.text=''
+            root.ids.age.text=''
+
+    MDRaisedButton:
+        text: "Read"
+        elevation: 8
+        opposite_colors: True
+        pos_hint: {"center_x": 0.6, 'center_y': 0.6}
+        on_release: app.read()
+
+    MDRaisedButton:
+        text: "Update"
+        elevation: 8
+        opposite_colors: True
+        pos_hint: {"center_x": 0.3, 'center_y': 0.5}
+        on_release: 
+            app.update()
+            root.ids.name.text=''
+            root.ids.age.text=''
+
+    MDRaisedButton:
+        text: "Delete"
+        elevation: 8
+        opposite_colors: True
+        pos_hint: {"center_x": 0.6, 'center_y': 0.5}
+        on_release: 
+            app.delete()
+            root.ids.name.text=''
+            root.ids.age.text=''
